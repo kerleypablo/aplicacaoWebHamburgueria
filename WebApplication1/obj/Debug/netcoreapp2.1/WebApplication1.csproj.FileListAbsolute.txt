@@ -33,4 +33,8 @@ C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgue
 C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.pdb
 C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.genruntimeconfig.cache
 C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.csproj.CopyComplete
-C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\MateriasPrima\Index.cshtml.g.cs
+C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\MateriaPrimas\Create.cshtml.g.cs
+C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\MateriaPrimas\Delete.cshtml.g.cs
+C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\MateriaPrimas\Details.cshtml.g.cs
+C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\MateriaPrimas\Edit.cshtml.g.cs
+C:\Users\kerle\Google Drive\notebook kerley\documentos\CURSOS\Curso C#\hamburgueriaCamila\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\MateriaPrimas\Index.cshtml.g.cs
