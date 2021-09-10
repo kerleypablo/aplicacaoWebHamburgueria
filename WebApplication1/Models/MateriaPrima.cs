@@ -1,6 +1,8 @@
 ﻿
 
 using System;
+using System.Collections.Generic;
+using WebApplication1.Models.Enums;
 
 namespace WebApplication1.Models
 {
@@ -10,7 +12,22 @@ namespace WebApplication1.Models
         public String Nome  { get; set; }
 
         public double  quantidade { get; set; }
-        public String Unidade { get; set; }
+        public double VlrUnitario { get; set; }
 
+
+        public Unidade uni { get; set; }
+
+       public MateriaPrima()
+        {
+        }
+
+        public MateriaPrima(int id, string nome, double quantidade, Unidade uni,double vlrUnitario)
+        {
+            Id = id;
+            Nome = nome;
+            this.quantidade = quantidade;
+            this.uni = uni;
+            this.VlrUnitario = vlrUnitario;
+        }
     }
 }

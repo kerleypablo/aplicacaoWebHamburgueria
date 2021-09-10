@@ -15,5 +15,14 @@ namespace WebApplication1.Data
         }
 
         public DbSet<WebApplication1.Models.MateriaPrima> MateriaPrima { get; set; }
+        public DbSet<WebApplication1.Models.Produto> Produto { get; set; }
+
+       protected override void OnModelCreating(ModelBuilder mb)
+        {
+            mb.Entity<MateriaPrima_Produto>().HasKey(al => new { al.IdMateriaPrima, al.IdProduto });
+        }
+
+
+
     }
 }
