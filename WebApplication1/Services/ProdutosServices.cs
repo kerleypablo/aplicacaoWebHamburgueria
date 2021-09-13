@@ -21,6 +21,12 @@ namespace WebApplication1.Services
             return _context.Produto.ToList();
         }
 
+        public void Insert(Produto prd)
+        {
+            _context.Add(prd);
+            _context.SaveChanges();
+
+        }
       
     }
 }
