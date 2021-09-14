@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Data;
 using WebApplication1.Models;
+using WebApplication1.Models.ViewModels;
 using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
@@ -37,9 +38,11 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Salvar(MateriaPrima mtp, Produto pdt)
         {
-            _materiaPrima_produtoServices.Insert(mtp,pdt);
+            _materiaPrima_produtoServices.Lista(mtp,pdt);
             return RedirectToAction(nameof(Index));
         }
+
+       
 
     }
 }

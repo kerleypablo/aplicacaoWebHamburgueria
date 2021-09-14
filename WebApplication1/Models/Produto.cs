@@ -13,6 +13,7 @@ namespace WebApplication1.Models
         public Double preco { get; set; }
 
         public ICollection<MateriaPrima> MateriasPrima { get; set; } = new List<MateriaPrima>();
+       
 
 
         public Produto()

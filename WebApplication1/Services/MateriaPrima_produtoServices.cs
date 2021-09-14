@@ -10,6 +10,7 @@ namespace WebApplication1.Services
     public class MateriaPrima_produtoServices
     {
         private readonly WebApplication1Context _context;
+     
 
         public MateriaPrima_produtoServices(WebApplication1Context context )
         {
@@ -22,11 +23,20 @@ namespace WebApplication1.Services
 
         }
 
-        public void Insert(MateriaPrima mtp,Produto pdt)
+        public void Insert(MateriaPrima_Produto mtp)
         {
-            _context.Add(mtp) ;
+            _context.Add(mtp);
             _context.SaveChanges();
 
         }
+        public void Lista(MateriaPrima mtp, Produto pdt)
+        {
+            pdt.addMetriaPrima(mtp);
+
+            // _context.SaveChanges();
+
+        }
+
+
     }
 }

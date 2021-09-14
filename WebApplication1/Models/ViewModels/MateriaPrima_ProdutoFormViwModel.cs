@@ -8,6 +8,12 @@ namespace WebApplication1.Models.ViewModels
     public class MateriaPrima_ProdutoFormViwModel
     {
         public Produto Produto { get; set; }
-        public MateriaPrima MateriaPrimas { get; set; }
+        public ICollection<MateriaPrima> MateriaPrimas { get; set; }
+
+        public int[] ListaMateriais { get; set; } = new int[10];
     }
+
+    
+
+
 }

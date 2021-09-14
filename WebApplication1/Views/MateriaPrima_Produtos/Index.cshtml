@@ -1,4 +1,5 @@
-﻿@model  IEnumerable<WebApplication1.Models.MateriaPrima>
+﻿@model IEnumerable<WebApplication1.Models.MateriaPrima_Produto>
+
 
 @{
     ViewData["Title"] = "Construindo Produtos";
@@ -10,10 +11,10 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nome)
+                    @Html.DisplayNameFor(model => model.MateriaPrima.Nome)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.VlrUnitario)
+                    @Html.DisplayNameFor(model => model.MateriaPrima.VlrUnitario)
                 </th>
                 <th></th>
             </tr>
@@ -25,18 +26,18 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
+                        @Html.DisplayFor(modelItem => item.MateriaPrima.Nome)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.VlrUnitario)
+                        @Html.DisplayFor(modelItem => item.MateriaPrima.VlrUnitario)
                     </td>
                     <td>
-                        <input type="checkbox" id=@Html.DisplayFor(modelItem => item.Id) name="ListaMateriais">
+                        <input type="checkbox" id=@Html.DisplayFor(modelItem => item.MateriaPrima.Id) name="ListaMateriais" value="@Html.DisplayFor(modelItem => item.MateriaPrima.Id)">
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    <input type="submit" value="Salvar" class="btn btn-default" />
+    <input type="submit" value="UpdateChecks" class="btn btn-default" />
 </form>
 
