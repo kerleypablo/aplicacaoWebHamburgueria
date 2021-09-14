@@ -41,7 +41,9 @@ namespace WebApplication1
                     options.UseMySql(Configuration.GetConnectionString("WebApplication1Context"), builder =>
                         builder.MigrationsAssembly("WebApplication1")));
             services.AddScoped<ProdutosServices>();
-        
+            services.AddScoped<MateriaPrima_produtoServices>();
+            services.AddScoped<MateriaPrimaServices>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

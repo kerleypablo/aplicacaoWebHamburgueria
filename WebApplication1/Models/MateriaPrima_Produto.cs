@@ -7,10 +7,16 @@ namespace WebApplication1.Models
 {
     public class MateriaPrima_Produto
     {
-        public int IdMateriaPrima { get; set; }
-        public int IdProduto { get; set; }
+        public int MateriaPrimaID { get; set; }
+        public int ProdutoID { get; set; }
 
         public MateriaPrima MateriaPrima { get; set; }
         public Produto Produto { get; set; }
+
+        public MateriaPrima_Produto(int materiaPrimaID, int produtoID)
+        {
+            MateriaPrimaID = materiaPrimaID;
+            ProdutoID = produtoID;
+        }
     }
 }

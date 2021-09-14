@@ -19,7 +19,7 @@ namespace WebApplication1.Data
 
        protected override void OnModelCreating(ModelBuilder mb)
         {
-            mb.Entity<MateriaPrima_Produto>().HasKey(al => new { al.IdMateriaPrima, al.IdProduto });
+            mb.Entity<MateriaPrima_Produto>().HasKey(al => new { al.MateriaPrimaID, al.ProdutoID });
         }
 
 
