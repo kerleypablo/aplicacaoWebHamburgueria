@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Data;
 using WebApplication1.Models;
+using WebApplication1.Models.Enums;
 using WebApplication1.Models.ViewModels;
 using WebApplication1.Services;
 

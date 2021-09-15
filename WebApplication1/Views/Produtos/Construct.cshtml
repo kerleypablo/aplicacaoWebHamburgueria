@@ -33,6 +33,14 @@
                         @Html.DisplayFor(modelItem => item.VlrUnitario)
                     </td>
                     <td>
+                        <label asp-for="quantidade" class="control-label"></label>
+                        <input asp-for="quantidade" class="form-control" name="qtd"/>
+                    </td>
+                    <td>
+                        <label asp-for="unidade" class="control-label" ></label>
+                        <input asp-for="unidade" class="form-control" name="uni"  />
+                    </td>
+                    <td>
                         <input type="checkbox" id=@Html.DisplayFor(modelItem => item.Id) name="ListaMateriais" value="@Html.DisplayFor(modelItem => item.Id)">
                     </td>
                 </tr>

@@ -14,20 +14,22 @@ namespace WebApplication1.Models
         public double  quantidade { get; set; }
         public double VlrUnitario { get; set; }
 
-
         public Unidade uni { get; set; }
 
-       public MateriaPrima()
+        public Fornecedor FornecedorId { get; set; }
+
+        public MateriaPrima()
         {
         }
 
-        public MateriaPrima(int id, string nome, double quantidade, Unidade uni,double vlrUnitario)
+        public MateriaPrima(int id, string nome, double quantidade, Unidade uni,double vlrUnitario,Fornecedor fornecedorId)
         {
             Id = id;
             Nome = nome;
             this.quantidade = quantidade;
             this.uni = uni;
             this.VlrUnitario = vlrUnitario;
+            this.FornecedorId = fornecedorId;
         }
     }
 }

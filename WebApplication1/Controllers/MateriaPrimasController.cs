@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Models;
+using WebApplication1.Models.ViewModels;
+using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
     public class MateriaPrimasController : Controller
     {
         private readonly WebApplication1Context _context;
+        private readonly FornecedoresServices _fornecedoresServices;
 
-        public MateriaPrimasController(WebApplication1Context context)
+        public MateriaPrimasController(WebApplication1Context context , FornecedoresServices fornecedoresServices)
         {
             _context = context;
+            _fornecedoresServices = fornecedoresServices;
         }
 
         // GET: MateriaPrimas
@@ -54,14 +58,15 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,quantidade,Unidade")] MateriaPrima materiaPrima)
+        public async Task<IActionResult> Create([Bind("Id,Nome,quantidade,uni,fornecedorId,VlrUnitario")] MateriaPrima materiaPrima)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(materiaPrima);
+                var list = _context.Add(materiaPrima);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(materiaPrima);
         }
 
@@ -86,7 +91,7 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,quantidade,Unidade")] MateriaPrima materiaPrima)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,quantidade,uni,fornecedor,vlrUnitario")] MateriaPrima materiaPrima)
         {
             if (id != materiaPrima.Id)
             {

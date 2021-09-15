@@ -12,14 +12,14 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Imagem)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nome)
+                <label>Nome</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.preco)
+                <label>Preço</label>
             </th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -40,7 +40,10 @@
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                </td>
+                <td></td>
+                <td>
                     <a asp-controller="Produtos" asp-action="Construct" class="btn btn-default" asp-route-id="@item.ID" asp->Construir</a>
                 </td>
             </tr>

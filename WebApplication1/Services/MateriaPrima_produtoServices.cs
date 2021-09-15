@@ -29,6 +29,9 @@ namespace WebApplication1.Services
             _context.SaveChanges();
 
         }
+        
+        
+        
         public void Lista(MateriaPrima mtp, Produto pdt)
         {
             pdt.addMetriaPrima(mtp);

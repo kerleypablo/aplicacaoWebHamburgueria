@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Models;
+using WebApplication1.Models.Enums;
 using WebApplication1.Models.ViewModels;
 using WebApplication1.Services;
 
@@ -56,11 +57,11 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [Route("{id}")]
         [ValidateAntiForgeryToken]
-        public IActionResult UpdateChecks(IList<int> ListaMateriais,int id)
+        public IActionResult UpdateChecks(IList<int> ListaMateriais,int id,double qtd,Unidade uni)
         {
             foreach(var materiaP in ListaMateriais)
             {
-                MateriaPrima_Produto mtp = new MateriaPrima_Produto(materiaP,id);
+                MateriaPrima_Produto mtp = new MateriaPrima_Produto(materiaP,id,qtd,uni);
             _materiaPrima_produtoServices.Insert(mtp);
             }
             return RedirectToAction(nameof(Index));

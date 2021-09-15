@@ -43,6 +43,7 @@ namespace WebApplication1
             services.AddScoped<ProdutosServices>();
             services.AddScoped<MateriaPrima_produtoServices>();
             services.AddScoped<MateriaPrimaServices>();
+            services.AddScoped<FornecedoresServices>();
 
         }
 

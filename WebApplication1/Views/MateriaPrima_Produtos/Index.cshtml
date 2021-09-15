@@ -14,7 +14,7 @@
                     @Html.DisplayNameFor(model => model.MateriaPrima.Nome)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.MateriaPrima.VlrUnitario)
+                    <label>Valor Unitario</label>
                 </th>
                 <th></th>
             </tr>
@@ -32,7 +32,14 @@
                         @Html.DisplayFor(modelItem => item.MateriaPrima.VlrUnitario)
                     </td>
                     <td>
-                        <input type="checkbox" id=@Html.DisplayFor(modelItem => item.MateriaPrima.Id) name="ListaMateriais" value="@Html.DisplayFor(modelItem => item.MateriaPrima.Id)">
+                        @Html.DisplayFor(modelItem => item.MateriaPrima.uni)
+                    </td>
+                    <td>
+                        <label class="control-label"></label>
+                        <input  class="form-control" />
+                    </td>
+                    <td>
+                        <input type="checkbox" id=@Html.DisplayFor(modelItem => item.MateriaPrima.Id) name="ListaMateriais" value="@Html.DisplayFor(modelItem => item.MateriaPrima.Id)">          
                     </td>
                 </tr>
             }
