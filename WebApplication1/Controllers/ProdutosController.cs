@@ -57,13 +57,24 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [Route("{id}")]
         [ValidateAntiForgeryToken]
-        public IActionResult UpdateChecks(IList<int> ListaMateriais,int id,double qtd,Unidade uni)
+        public IActionResult UpdateChecks(IList<int> ListaMateriais,int id, IList<double> qtd,Unidade uni)
         {
-            foreach(var materiaP in ListaMateriais)
+           
+            foreach (var materiaP in ListaMateriais)
             {
-                MateriaPrima_Produto mtp = new MateriaPrima_Produto(materiaP,id,qtd,uni);
-            _materiaPrima_produtoServices.Insert(mtp);
+                foreach (var quant in qtd)
+                {
+                    if (quant != 0)
+                    {
+                        MateriaPrima_Produto mtp = new MateriaPrima_Produto(materiaP, id, quant, uni);
+                        _materiaPrima_produtoServices.Insert(mtp);
+                        qtd.Remove(quant);
+                        break;
+                    } 
+                    
+                }
             }
+                
             return RedirectToAction(nameof(Index));
            
         }

@@ -17,6 +17,7 @@ namespace WebApplication1.Models
         public Unidade uni { get; set; }
 
         public Fornecedor FornecedorId { get; set; }
+      
 
         public MateriaPrima()
         {
