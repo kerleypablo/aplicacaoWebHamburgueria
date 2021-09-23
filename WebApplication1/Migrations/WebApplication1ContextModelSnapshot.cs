@@ -17,9 +17,21 @@ namespace WebApplication1.Migrations
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("WebApplication1.Models.Compra", b =>
+                {
+                    b.Property<int>("CompraId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Datacompra");
+
+                    b.HasKey("CompraId");
+
+                    b.ToTable("Compra");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Fornecedor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("FornecedorId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Contato");
@@ -28,57 +40,87 @@ namespace WebApplication1.Migrations
 
                     b.Property<string>("Telefone");
 
-                    b.HasKey("Id");
+                    b.HasKey("FornecedorId");
 
                     b.ToTable("Fornecedor");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.MateriaPrima", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MateriaPrimaId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Nome");
 
-                    b.Property<int?>("ProdutoID");
+                    b.Property<int?>("TipoIdId");
 
                     b.Property<double>("VlrUnitario");
 
-                    b.Property<int?>("fornecedorIdId");
-
                     b.Property<double>("quantidade");
 
-                    b.Property<int>("uni");
+                    b.Property<int?>("uniId");
 
-                    b.HasKey("Id");
+                    b.HasKey("MateriaPrimaId");
 
-                    b.HasIndex("ProdutoID");
+                    b.HasIndex("TipoIdId");
 
-                    b.HasIndex("fornecedorIdId");
+                    b.HasIndex("uniId");
 
                     b.ToTable("MateriaPrima");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.MateriaPrima_Produto", b =>
+            modelBuilder.Entity("WebApplication1.Models.MateriaPrima_ComprasViewModel", b =>
                 {
-                    b.Property<int>("MateriaPrimaID");
+                    b.Property<int>("MateriaPrimaId");
 
-                    b.Property<int>("ProdutoID");
+                    b.Property<int>("CompraId");
 
-                    b.Property<double>("Quantidade");
+                    b.Property<int?>("CompraId1");
 
-                    b.Property<int>("Unidade");
+                    b.HasKey("MateriaPrimaId", "CompraId");
 
-                    b.HasKey("MateriaPrimaID", "ProdutoID");
+                    b.HasIndex("CompraId");
 
-                    b.HasIndex("ProdutoID");
+                    b.HasIndex("CompraId1");
 
-                    b.ToTable("MateriaPrima_Produto");
+                    b.ToTable("Materia_Compras");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.MateriaPrima_FornecedorViewModel", b =>
+                {
+                    b.Property<int>("MateriaPrimaId");
+
+                    b.Property<int>("FornecedorId");
+
+                    b.Property<int?>("FornecedorId1");
+
+                    b.HasKey("MateriaPrimaId", "FornecedorId");
+
+                    b.HasIndex("FornecedorId");
+
+                    b.HasIndex("FornecedorId1");
+
+                    b.ToTable("Materia_Fornecedor");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.MateriaPrima_ProdutoFormViwModel", b =>
+                {
+                    b.Property<int>("MateriaPrimaId");
+
+                    b.Property<int>("ProdutoId");
+
+                    b.Property<int?>("MateriaPrimaId1");
+
+                    b.HasKey("MateriaPrimaId", "ProdutoId");
+
+                    b.HasIndex("MateriaPrimaId1");
+
+                    b.ToTable("Materia_Prooduto");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Produto", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("ProdutoId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Imagem");
@@ -87,33 +129,80 @@ namespace WebApplication1.Migrations
 
                     b.Property<double>("preco");
 
-                    b.HasKey("ID");
+                    b.HasKey("ProdutoId");
 
                     b.ToTable("Produto");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.MateriaPrima", b =>
+            modelBuilder.Entity("WebApplication1.Models.Tipo", b =>
                 {
-                    b.HasOne("WebApplication1.Models.Produto")
-                        .WithMany("MateriasPrima")
-                        .HasForeignKey("ProdutoID");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
-                    b.HasOne("WebApplication1.Models.Fornecedor", "fornecedorId")
-                        .WithMany()
-                        .HasForeignKey("fornecedorIdId");
+                    b.Property<string>("NomeTipo");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tipo");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.MateriaPrima_Produto", b =>
+            modelBuilder.Entity("WebApplication1.Models.Unidade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Unidade");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.MateriaPrima", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Tipo", "TipoId")
+                        .WithMany()
+                        .HasForeignKey("TipoIdId");
+
+                    b.HasOne("WebApplication1.Models.Unidade", "uni")
+                        .WithMany()
+                        .HasForeignKey("uniId");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.MateriaPrima_ComprasViewModel", b =>
                 {
                     b.HasOne("WebApplication1.Models.MateriaPrima", "MateriaPrima")
-                        .WithMany()
-                        .HasForeignKey("MateriaPrimaID")
+                        .WithMany("Compras")
+                        .HasForeignKey("CompraId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("WebApplication1.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("ProdutoID")
+                    b.HasOne("WebApplication1.Models.Compra", "Compra")
+                        .WithMany("MateriasPrimas")
+                        .HasForeignKey("CompraId1");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.MateriaPrima_FornecedorViewModel", b =>
+                {
+                    b.HasOne("WebApplication1.Models.MateriaPrima", "MateriaPrima")
+                        .WithMany("Fornecedores")
+                        .HasForeignKey("FornecedorId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WebApplication1.Models.Fornecedor", "Fornecedor")
+                        .WithMany("MateriasPrimas")
+                        .HasForeignKey("FornecedorId1");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.MateriaPrima_ProdutoFormViwModel", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Produto", "Produto")
+                        .WithMany("MateriasPrimas")
+                        .HasForeignKey("MateriaPrimaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WebApplication1.Models.MateriaPrima", "MateriaPrima")
+                        .WithMany("produtos")
+                        .HasForeignKey("MateriaPrimaId1");
                 });
 #pragma warning restore 612, 618
         }

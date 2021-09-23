@@ -38,13 +38,13 @@
                     @Html.DisplayFor(modelItem => item.preco)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ProdutoId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProdutoId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProdutoId">Delete</a> |
                 </td>
                 <td></td>
                 <td>
-                    <a asp-controller="Produtos" asp-action="Construct" class="btn btn-default" asp-route-id="@item.ID" asp->Construir</a>
+                    <a asp-controller="Produtos" asp-action="Construct" class="btn btn-default" asp-route-id="@item.ProdutoId" asp->Construir</a>
                 </td>
             </tr>
         }

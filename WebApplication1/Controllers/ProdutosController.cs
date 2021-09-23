@@ -14,13 +14,13 @@ namespace WebApplication1.Controllers
     {
         private readonly ProdutosServices _produtosServices;
         private readonly MateriaPrimaServices _materiaPrimaServices;
-        private readonly MateriaPrima_produtoServices _materiaPrima_produtoServices;
+        
 
-        public ProdutosController(ProdutosServices proddutosServices, MateriaPrimaServices materiaPrimaServices, MateriaPrima_produtoServices materiaPrima_produtoServices)
+        public ProdutosController(ProdutosServices proddutosServices, MateriaPrimaServices materiaPrimaServices)
         {
             _produtosServices = proddutosServices;
             _materiaPrimaServices = materiaPrimaServices;
-            _materiaPrima_produtoServices = materiaPrima_produtoServices;
+            
         }
 
         public IActionResult Index()
@@ -41,23 +41,23 @@ namespace WebApplication1.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Construct()
+       /* public IActionResult Construct()
         {
 
             var list = _materiaPrimaServices.FindAll();
             var viewModel = new MateriaPrima_ProdutoFormViwModel { MateriaPrimas = list };
             return View(viewModel);
         }
-
+       */
         public IActionResult Salvar()
         {
             return View();
         }
  
-        [HttpPost]
+      /*  [HttpPost]
         [Route("{id}")]
         [ValidateAntiForgeryToken]
-        public IActionResult UpdateChecks(IList<int> ListaMateriais,int id, IList<double> qtd,Unidade uni)
+        public IActionResult UpdateChecks(IList<int> ListaMateriais,int id, IList<double> qtd)
         {
            
             foreach (var materiaP in ListaMateriais)
@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
                 {
                     if (quant != 0)
                     {
-                        MateriaPrima_Produto mtp = new MateriaPrima_Produto(materiaP, id, quant, uni);
+                        MateriaPrima_Produto mtp = new MateriaPrima_Produto(materiaP, id, quant);
                         _materiaPrima_produtoServices.Insert(mtp);
                         qtd.Remove(quant);
                         break;
@@ -78,6 +78,7 @@ namespace WebApplication1.Controllers
             return RedirectToAction(nameof(Index));
            
         }
+      */
 
 
     }

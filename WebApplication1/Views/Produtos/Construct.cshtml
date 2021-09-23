@@ -1,8 +1,10 @@
-﻿@model WebApplication1.Models.ViewModels.MateriaPrima_ProdutoFormViwModel
+﻿@model WebApplication1.Models.MateriaPrima_ProdutoFormViwModel
 
 
 @{
     ViewData["Title"] = "Construindo Produtos";
+
+    
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -22,29 +24,8 @@
         </thead>
 
         <tbody>
-
-            @foreach (var item in Model.MateriaPrimas)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.VlrUnitario)
-                    </td>
-                    <td>
-                        <label asp-for="quantidade" class="control-label"></label>
-                        <input asp-for="quantidade" class="form-control" name="qtd"  />
-                    </td>
-                    <td>
-                        <label asp-for="unidade" class="control-label" ></label>
-                        <select asp-for="unidade" class="form-control" name="uni" />
-                    </td>
-                    <td>
-                        <input type="checkbox"   name="ListaMateriais" value="@Html.DisplayFor(modelItem => item.Id)">
-                    </td>
-                </tr>
-            }
+          
+           
         </tbody>
     </table>
     <input type="submit" value="Slavar" class="btn btn-default" />

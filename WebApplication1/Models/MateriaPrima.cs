@@ -8,7 +8,7 @@ namespace WebApplication1.Models
 {
     public class MateriaPrima
     {
-        public int Id { get; set; }
+        public int MateriaPrimaId { get; set; }
         public String Nome  { get; set; }
 
         public double  quantidade { get; set; }
@@ -16,21 +16,13 @@ namespace WebApplication1.Models
 
         public Unidade uni { get; set; }
 
-        public Fornecedor FornecedorId { get; set; }
+        public ICollection<MateriaPrima_FornecedorViewModel> Fornecedores { get; set; }
+        public ICollection<MateriaPrima_ProdutoFormViwModel> produtos { get; set; }
+        public ICollection<MateriaPrima_ComprasViewModel> Compras { get; set; }
+        public Tipo TipoId { get; set; }
+
+
       
-
-        public MateriaPrima()
-        {
-        }
-
-        public MateriaPrima(int id, string nome, double quantidade, Unidade uni,double vlrUnitario,Fornecedor fornecedorId)
-        {
-            Id = id;
-            Nome = nome;
-            this.quantidade = quantidade;
-            this.uni = uni;
-            this.VlrUnitario = vlrUnitario;
-            this.FornecedorId = fornecedorId;
-        }
+    
     }
 }

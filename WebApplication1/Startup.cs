@@ -40,10 +40,12 @@ namespace WebApplication1
             services.AddDbContext<WebApplication1Context>(options =>
                     options.UseMySql(Configuration.GetConnectionString("WebApplication1Context"), builder =>
                         builder.MigrationsAssembly("WebApplication1")));
-            services.AddScoped<ProdutosServices>();
-            services.AddScoped<MateriaPrima_produtoServices>();
+            services.AddScoped<ProdutosServices>();    
             services.AddScoped<MateriaPrimaServices>();
             services.AddScoped<FornecedoresServices>();
+            services.AddScoped<TipoServices>();
+            services.AddScoped<UnidadeServices>();
+            services.AddScoped<ComprasServices>();
 
         }
 

@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
             }
 
             var materiaPrima = await _context.MateriaPrima
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.MateriaPrimaId == id);
             if (materiaPrima == null)
             {
                 return NotFound();
@@ -93,7 +93,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,quantidade,uni,fornecedor,vlrUnitario")] MateriaPrima materiaPrima)
         {
-            if (id != materiaPrima.Id)
+            if (id != materiaPrima.MateriaPrimaId)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace WebApplication1.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MateriaPrimaExists(materiaPrima.Id))
+                    if (!MateriaPrimaExists(materiaPrima.MateriaPrimaId))
                     {
                         return NotFound();
                     }
@@ -130,7 +130,7 @@ namespace WebApplication1.Controllers
             }
 
             var materiaPrima = await _context.MateriaPrima
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.MateriaPrimaId == id);
             if (materiaPrima == null)
             {
                 return NotFound();
@@ -152,7 +152,7 @@ namespace WebApplication1.Controllers
 
         private bool MateriaPrimaExists(int id)
         {
-            return _context.MateriaPrima.Any(e => e.Id == id);
+            return _context.MateriaPrima.Any(e => e.MateriaPrimaId == id);
         }
     }
 }
